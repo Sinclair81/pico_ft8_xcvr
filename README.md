@@ -52,9 +52,29 @@ git clone https://github.com/raspberrypi/pico-sdk.git
 
 export PICO_SDK_PATH=${HOME}/repos/pico-sdk
 
+cd pico-sdk
+
+git submodule update --init
+
+cd ..
+
+git clone https://github.com/kholia/pico-arduino-compat.git
+
+cd pico-arduino-compat
+
+git submodule update --init arduino-compat/arduino-pico
+
 git clone https://github.com/kholia/pico_ft8_xcvr.git
 
 cd pico_ft8_xcvr
+
+cd ~/repos/pico-arduino-compat/libs/tinygpsplus
+bash init.sh
+
+cd ~/repos/pico-arduino-compat/libs/time
+bash init.sh
+
+cd ~/repos/pico_ft8_xcvr
 
 cmake .
 
